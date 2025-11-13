@@ -10,9 +10,12 @@
   ]
 }
 
+0 - sudo snap install powershell --classic
+
 1 - $jsonBody = Get-Content -Raw -Path "prompt.json"
 
 2 - $responseObject = Invoke-WebRequest -Uri "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyDVVljweNF4gZ--5hz1WkXeR6QPXMgMmYo" -Method POST -Headers @{"Content-Type" = "application/json"} -Body $jsonBody
 
 
 3 - ($responseObject.Content | ConvertFrom-Json).candidates[0].content.parts[0].text | Out-File -FilePath "nqueens.c"
+
